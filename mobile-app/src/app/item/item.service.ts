@@ -26,4 +26,10 @@ export class ItemService {
             map(items => items.find(i => i.id === id))
         );
     }
+
+    updateItem(newItem: Item): Observable<any> {
+        return this.httpClient.put(this.endpoints.UPDATE, {
+            ...newItem,
+        });
+    }
 }

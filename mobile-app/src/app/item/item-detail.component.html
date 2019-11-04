@@ -1,8 +1,9 @@
 <ActionBar title="Details" class="action-bar"></ActionBar>
-<FlexboxLayout flexDirection="column" class="page">
-    <FlexboxLayout class="m-15">
-        <Label class="h2" [text]="item.id + '. '"></Label>
-        <Label class="h2" [text]="item.name"></Label>
-    </FlexboxLayout>
-    <Label class="h4" [text]="item.role"></Label>
+<FlexboxLayout [formGroup]="itemForm" flexDirection="column" class="page">
+        <Label text="Name" textWrap="true"></Label>
+        <TextField formControlName="name" hint="" text=""></TextField>
+        <Label text="Role" textWrap="true"></Label>
+        <TextField formControlName="role" hint="" text=""></TextField>
+
+        <Button text="Update" (tap)="submit()"></Button>
 </FlexboxLayout>
