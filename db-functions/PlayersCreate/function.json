@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "playerDocument",
+      "type": "cosmosDB",
+      "databaseName": "MobileAppDemo",
+      "collectionName": "Players",
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmosDB",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/PlayersCreate/index.js"
+}

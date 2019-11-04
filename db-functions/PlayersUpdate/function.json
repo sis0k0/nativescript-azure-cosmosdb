@@ -1,0 +1,37 @@
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "put"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "playerDocumentIn",
+      "type": "cosmosDB",
+      "databaseName": "MobileAppDemo",
+      "collectionName": "Players",
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmosDB",
+      "direction": "in"
+    },
+    {
+      "name": "playerDocument",
+      "type": "cosmosDB",
+      "databaseName": "MobileAppDemo",
+      "collectionName": "Players",
+      "createIfNotExists": true,
+      "connectionStringSetting": "CosmosDB",
+      "direction": "out"
+    }
+  ],
+  "scriptFile": "../dist/PlayersUpdate/index.js"
+}
