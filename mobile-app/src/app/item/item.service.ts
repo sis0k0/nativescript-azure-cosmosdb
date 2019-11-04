@@ -21,9 +21,9 @@ export class ItemService {
         return this.items$;
     }
 
-    getItem(id: number): Observable<Item> {
+    getItem(id: string): Observable<Item> {
         return this.getItems().pipe(
-            map(items => items.find(i => Number(i.id) === id))
+            map(items => items.find(i => i.id === id))
         );
     }
 }

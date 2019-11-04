@@ -2,23 +2,20 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 import { Item } from "./item";
-import { ItemService } from "./item.service";
-import { Observable } from "rxjs";
 
 @Component({
     selector: "ns-details",
     templateUrl: "./item-detail.component.html"
 })
 export class ItemDetailComponent implements OnInit {
-    item$: Observable<Item>;
+    item: Item;
 
-    constructor(
-        private itemService: ItemService,
-        private route: ActivatedRoute
-    ) { }
+    constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
-        const id = +this.route.snapshot.params.id;
-        this.item$ = this.itemService.getItem(id);
+        this.route.data
+            .subscribe((data: { item: Item }) => {
+                this.item = data.item;
+            });
     }
 }
